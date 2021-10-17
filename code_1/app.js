@@ -1,18 +1,8 @@
-const menuIcon = document.querySelector('.menuIcon');
-const list = document.querySelector('.list-wrapper');
-const icons = document.querySelector('.icon-wrapper');
+const menuButton = document.querySelector('.nav-toggleBtn');
+const menu = document.querySelector('.nav-menu');
+const icons = document.querySelector('.nav-icons');
 
-let isOpenAccordion = false;
-
-menuIcon.addEventListener('click', () => {
-  isOpenAccordion = !isOpenAccordion;
-
-  if (isOpenAccordion) {
-    list.style.display = 'flex';
-    icons.style.display = 'flex';
-    icons.style.justifyContent = 'center';
-  } else {
-    list.style.display = 'none';
-    icons.style.display = 'none';
-  }
+menuButton.addEventListener('click', () => {
+  menu.classList.toggle('active');
+  icons.classList.toggle('active');
 });

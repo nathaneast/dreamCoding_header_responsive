@@ -1,115 +1,84 @@
+:root {
+	--text-color: white;
+	--menu-color: orange;
+}
+
 body {
-	margin: 0em;
+	margin: 0px;
 }
 
-header {
+nav {
   display:  flex;
+	flex-direction: row;
+	justify-content: space-between;
   background: green;
+	padding: 8px 10px;
 }
 
-.logo-wrapper {
+.nav-logo {
 	display: flex;
 	align-items: center;
-	flex-grow: 1;
-	justify-content: flex-start;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo span {
-	padding: 0em 0.5em;
-}
-
-.menu span {
-	padding: 0em 0.5em;
-}
-
-.list-wrapper {
-	display: flex;
-	flex-grow: 2;
 	justify-content: center;
+	color: var(--text-color);
 }
 
-.list-wrapper ul {
+.nav-menu {
 	display: flex;
-  align-items: center;
-}
-
-.list-wrapper ul {
-	display: flex;
+	flex-direction: row;
+	align-items: center;
 	list-style: none;
 	padding: 0px;
-  margin: 0px;
+	margin: 0px;
+	color: var(--menu-color);
 }
 
-.list-wrapper ul li {
-	margin: 8px
+.nav-menu li {
+	padding: 8px 10px;
 }
 
-.icon-wrapper {
+.nav-icons {
 	display: flex;
-  align-items: center;
-	flex-grow: 1;
-	justify-content: flex-end;
+	justify-content: center;
+	list-style: none;
+	padding: 0px;
 }
 
-.icon-wrapper span {
-	margin: 5px;
+.nav-icons li {
+	padding: 8px 10px;
+}
+
+.nav-toggleBtn {
+	display: none;
 }
 
 /* 752px 이하인 경우 적용됨 */
-@media (max-width: 47em) {
-	header {
-		display: flex;
+@media screen and (max-width: 752px) {
+	nav {
     flex-direction: column;
 	}
 
-	.menuIcon {
-		display: flex;
-    align-items: center;
+	.nav-logo {
+		justify-content: flex-start;
 	}
 
-	.logo-wrapper {
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		height: 3em;
-	}
-
-	.list-wrapper {
+	.nav-menu {
+		flex-direction: column;
 		display: none;
-    flex-direction: column;
 	}
 
-	.list-wrapper ul {
-    flex-direction: column;
-	}
-
-	.icon-wrapper {
+	.nav-icons {
 		display: none;
+	} 
+
+	.nav-toggleBtn {
+		display: block;
+		position: absolute;
+		right: 10px;
+		cursor: pointer;
 	}
 }
 
-/* 753px 이상인 경우 적용됨 */
-@media (min-width: 47.1em) {
-	header {
-		height: 5em;
-	}
-
-	.menuIcon {
-		display: none;
-	}
-
-	.list-wrapper {
-		display: flex;
-    flex-direction: row;
-	}
-
-	.icon-wrapper {
-		display: flex;
-		justify-content: flex-end;
-	}
+.nav-menu.active,
+.nav-icons.active {
+	display: flex;
 }
